@@ -18,10 +18,8 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex min-h-screen flex-col items-center justify-between p-12 md:p-24">
-          <div className="z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex flex-col">
-            <Providers draftModeEnabled={isEnabled}>{children}</Providers>
-          </div>
+        <main>
+          <Providers draftModeEnabled={isEnabled}>{children}</Providers>
         </main>
       </body>
     </html>
