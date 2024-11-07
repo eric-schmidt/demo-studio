@@ -1,19 +1,19 @@
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
-import { getEntryById, getLinksToEntryById } from "../../../lib/client";
+import { getEntryById, getLinksToEntryById } from "@/src/lib/client";
 
 // E.g. http://localhost:3000/api/revalidate?secret=<secret>
 // BUT this needs to use ngrok to work properly as a Webhook endpoint!!!
 
 // Maintain a list of "page" content types for revalidation purposes.
-const pageContentTypes = ["category", "page", "post"];
+const pageContentTypes = ["page"];
 
 // Recursively find the page that needs to be revalidated by working up
 // through the reference tree of entries that link to the triggering entry.
 const findPageToRevalidate = async (entryId) => {
   const entry = await getEntryById({ entryId });
 
-  if (pageContentTypes.includes(entry.sys.contentType.sys.id)) {
+  if (entry && pageContentTypes.includes(entry.sys.contentType.sys.id)) {
     revalidateTag(entry.fields.slug);
   } else {
     const linksToEntry = await getLinksToEntryById({

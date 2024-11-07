@@ -6,21 +6,29 @@ import {
 } from "@contentful/experiences-sdk-react";
 import { getClient } from "@/src/lib/client";
 import { Experience } from "@/src/components/Experience";
+import { notFound } from "next/navigation";
 
 const Page = async ({ params }) => {
   // Check if Draft Mode is enabled.
-  const { isEnabled } = draftMode();
-  // TODO: Can't set the cookie on localhost with Live Preview, so preview can be forced to `true` here.
-  // const isEnabled = true;
+  let { isEnabled } = draftMode();
+  // TODO: Can't set the cookie on localhost with Live Preview/Studio, so preview can be forced to `true` here.
+  // isEnabled = true;
 
+  let experience;
+  const experienceTypeId = "page";
   const localeCode = "en-US";
 
-  const experience = await fetchBySlug({
-    client: await getClient({ preview: isEnabled }),
-    slug: params.slug,
-    experienceTypeId: "page",
-    localeCode,
-  });
+  try {
+    experience = await fetchBySlug({
+      client: await getClient({ preview: isEnabled }),
+      slug: params.slug,
+      experienceTypeId,
+      localeCode,
+    });
+  } catch (error) {
+    console.error(error);
+    return notFound();
+  }
 
   // Extract the styles from the experience for manual placement.
   // If these are not placed, there may be some odd flashes of unstyled content.

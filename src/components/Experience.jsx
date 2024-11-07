@@ -2,12 +2,7 @@
 "use client";
 
 import React from "react";
-import {
-  ExperienceRoot,
-  defineComponents,
-  defineDesignTokens,
-  useFetchBySlug,
-} from "@contentful/experiences-sdk-react";
+import { ExperienceRoot } from "@contentful/experiences-sdk-react";
 
 export const Experience = ({ experience, localeCode }) => {
   return <ExperienceRoot experience={experience} locale={localeCode} />;
