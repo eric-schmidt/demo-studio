@@ -4,9 +4,10 @@ import {
   detachExperienceStyles,
   fetchBySlug,
 } from "@contentful/experiences-sdk-react";
-import { getClient } from "@/src/lib/client";
-import { Experience } from "@/src/components/Experience";
 import { notFound } from "next/navigation";
+import { getClient } from "@/src/lib/client";
+import { Experience } from "@/src/components/experience";
+import "@/src/components/studio-config";
 
 const Page = async ({ params }) => {
   // Check if Draft Mode is enabled.

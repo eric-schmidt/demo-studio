@@ -4,7 +4,7 @@ import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import Image from "next/image";
-import { imageLoader } from "../lib/imageLoader";
+import { imageLoader } from "../lib/image-loader";
 
 export const Duplex = ({ entry }) => {
   const { fields } = useContentfulLiveUpdates(entry);

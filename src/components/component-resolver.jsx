@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import React from "react";
-import { ComponentMap } from "@/src/components/ComponentMap";
+import { ComponentMap } from "@/src/components/component-map";
 
 export const ComponentResolver = ({ entry }) => {
   const Component = ComponentMap[entry.sys.contentType.sys.id];

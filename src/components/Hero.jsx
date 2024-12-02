@@ -4,7 +4,7 @@ import React from "react";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
-import { imageLoader } from "@/src/lib/imageLoader";
+import { imageLoader } from "@/src/lib/image-loader";
 
 export const Hero = ({ entry }) => {
   const { fields } = useContentfulLiveUpdates(entry);
