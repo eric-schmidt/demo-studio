@@ -11,7 +11,7 @@ import "@/src/components/studio-config";
 
 const Page = async ({ params }) => {
   // Check if Draft Mode is enabled.
-  // let { isEnabled } = draftMode();
+  // let { isEnabled } = await draftMode();
   // Sometimes it is helpful to override Draft Mode when testing.
   let isEnabled = true;
 

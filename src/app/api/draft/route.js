@@ -28,7 +28,7 @@ export const GET = async (request) => {
   }
 
   // Enable Draft Mode.
-  draftMode().enable();
+  await draftMode().enable();
 
   // In order for Draft Mode to work within the context of Live Preview and/or Studio,
   // we need to ensure the cookie has sameSite=None and secure=true.
