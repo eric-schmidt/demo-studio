@@ -3,27 +3,37 @@ import {
   defineComponents,
   defineDesignTokens,
 } from "@contentful/experiences-sdk-react";
+import Duplex from "@/src/components/duplex";
 
 //Configure your components, design tokens, and custom breakpoints here
 
 defineComponents([
   // Add your custom components here
   // example:
-  // {
-  //   component: Button,
-  //   definition: {
-  //     id: 'custom-button',
-  //     name: 'Button',
-  //     category: 'Custom Components',
-  //     variables: {
-  //       text: {
-  //         displayName: 'Text',
-  //         type: 'Text',
-  //         defaultValue: 'Click me'
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    component: Duplex,
+    definition: {
+      id: "duplex",
+      name: "Duplex",
+      category: "Layout",
+      variables: {
+        headline: {
+          displayName: "Headline",
+          type: "Text",
+          defaultValue: "Headline",
+        },
+        bodyText: {
+          displayName: "Body text",
+          type: "Text",
+          defaultValue: "Body text",
+        },
+        image: {
+          displayName: "Image",
+          type: "Media",
+        },
+      },
+    },
+  },
 ]);
 
 defineBreakpoints([
