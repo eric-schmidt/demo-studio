@@ -16,20 +16,24 @@ defineComponents([
       id: "duplex",
       name: "Duplex",
       category: "Layout",
+      builtInStyles: [
+        "cfMargin",
+        "cfPadding",
+        "cfBackgroundColor",
+        "cfImageAsset",
+        "cfImageOptions",
+      ],
       variables: {
         headline: {
           displayName: "Headline",
           type: "Text",
-          defaultValue: "Headline",
+          defaultValue: "Duplex",
+          bindingSourceType: "Entry",
         },
-        bodyText: {
+        body: {
           displayName: "Body text",
-          type: "Text",
-          defaultValue: "Body text",
-        },
-        image: {
-          displayName: "Image",
-          type: "Media",
+          type: "RichText",
+          bindingSourceType: "Entry",
         },
       },
     },
