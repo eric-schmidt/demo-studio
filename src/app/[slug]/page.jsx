@@ -15,6 +15,9 @@ const Page = async ({ params }) => {
   // Sometimes it is helpful to override Draft Mode when testing.
   let isEnabled = true;
 
+  // In Next.js 15+, params is a Promise and must be awaited
+  const { slug } = await params;
+
   let experience;
   const experienceTypeId = "page";
   const localeCode = "en-US";
@@ -22,7 +25,7 @@ const Page = async ({ params }) => {
   try {
     experience = await fetchBySlug({
       client: await getClient({ preview: isEnabled }),
-      slug: params.slug,
+      slug,
       experienceTypeId,
       localeCode,
     });
